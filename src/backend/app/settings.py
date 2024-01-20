@@ -11,4 +11,5 @@ class Settings(BaseSettings):
     
     @property
     def DATABASE_URL(self):
+        
         return f"postgresql://{self.DATABASE_USER}:{self.DATABASE_PASSWORD}@localhost:5432/{self.DATABASE_DB}"

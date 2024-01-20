@@ -31,7 +31,7 @@ class Status(Base):
     cod_status: Mapped[int] = mapped_column(unique=True)
     nome: Mapped[str]
     
-    correspondencia_interna = relationship("correspondencia_interna", back_populates="tipo_status")
+    correspondencia_interna = relationship("CorrespondenciaInterna", back_populates="tipo_status")
     
     
 class User(Base):
@@ -61,12 +61,12 @@ class CorrespondenciaInterna(Base):
     user_id_remetente: Mapped[int] = mapped_column(ForeignKey("user.id"))
     user_id_destinatario: Mapped[int] = mapped_column(ForeignKey("user.id"))
     descricao: Mapped[str]
-    status: Mapped[int] = mapped_column(ForeignKey("status.cod_status"))
+    status: Mapped[int] = mapped_column(ForeignKey("tipo_status.cod_status"))
     
     user_remetente = relationship("User", back_populates="correspondencia_interna_remetente", uselist=False)
     user_destinatario = relationship("User", back_populates="correspondencia_interna_destinatario", uselist=False)
     
-    status = relationship("Status", back_populates="correspondencia_interna", uselist=False)
+    tipo_status = relationship("Status", back_populates="correspondencia_interna", uselist=False)
     
     
 
