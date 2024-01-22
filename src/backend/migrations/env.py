@@ -10,7 +10,7 @@ from settings import Settings
 from dotenv import load_dotenv
 load_dotenv()
 
-from models.models import Base
+from app.database.config.Base import Base
 
 settings = Settings()
 

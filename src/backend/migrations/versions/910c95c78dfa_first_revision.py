@@ -1,8 +1,8 @@
 """first revision
 
-Revision ID: 9ae8b922dad6
+Revision ID: 910c95c78dfa
 Revises: 
-Create Date: 2024-01-20 12:17:58.830972
+Create Date: 2024-01-21 17:46:04.166963
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '9ae8b922dad6'
+revision: str = '910c95c78dfa'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -23,13 +23,13 @@ def upgrade() -> None:
     op.create_table('filial',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nome', sa.String(), nullable=False),
-    sa.Column('cod_filial', sa.String(), nullable=False),
+    sa.Column('cod_filial', sa.Integer(), nullable=False),
     sa.Column('cnpj', sa.Integer(), nullable=False),
     sa.Column('uf', sa.String(), nullable=False),
     sa.Column('cep', sa.Integer(), nullable=False),
     sa.Column('rua', sa.String(), nullable=False),
     sa.Column('bairro', sa.String(), nullable=False),
-    sa.Column('numero', sa.String(), nullable=False),
+    sa.Column('numero', sa.Integer(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('cod_filial')
     )
