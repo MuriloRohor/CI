@@ -13,12 +13,10 @@ class FilialSchema(BaseModel):
     numero:int
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class FilialPorIdSchema(BaseModel):
     id: int
       
     class Config:
-        orm_mode = True
-        
-class FilialListarPageSchema(BaseModel)
+        from_attributes = True

@@ -17,6 +17,6 @@ class User(Base):
     image_url: Mapped[str]
     filial_id: Mapped[int] = mapped_column(ForeignKey("filial.id"))
     
-    filial = relationship("Filial", back_populates="user", uselist=False)
+    filial = relationship("Filial", back_populates="user")
     correspondencia_interna_remetente = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.user_id_remetente]", back_populates="user_remetente")
     correspondencia_interna_destinatario = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.user_id_destinatario]", back_populates="user_destinatario")
