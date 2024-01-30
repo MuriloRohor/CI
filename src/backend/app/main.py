@@ -3,11 +3,13 @@ from fastapi.staticfiles import StaticFiles
 import uvicorn
 
 from app.routes.FilialRouter import router as router_filial
+from app.routes.UserRouter import router as router_user
 
 app = FastAPI()
 
 
 app.include_router(router_filial)
+app.include_router(router_user)
 
 
 if __name__ == "__main__":
