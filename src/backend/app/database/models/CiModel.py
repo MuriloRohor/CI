@@ -20,7 +20,7 @@ class CorrespondenciaInterna(Base):
     user_remetente = relationship("User", foreign_keys="[CorrespondenciaInterna.user_id_remetente]", back_populates="correspondencia_interna_remetente", uselist=False)
     user_destinatario = relationship("User", foreign_keys="[CorrespondenciaInterna.user_id_destinatario]", back_populates="correspondencia_interna_destinatario", uselist=False)
     
-    filial_origem = relationship("Filial", foreign_keys="[CorrespondenciaInterna.cod_filial_origem]", back_populates="correspondencia_interna_cod_filail_origem", uselist=False)
-    filial_destino = relationship("Filial", foreign_keys="[CorrespondenciaInterna.cod_filial_destino]", back_populates="correspondencia_interna_cod_filail_destino", uselist=False)
+    filial_origem = relationship("Filial", foreign_keys="[CorrespondenciaInterna.cod_filial_origem]", back_populates="correspondencia_interna_cod_filial_origem", uselist=False)
+    filial_destino = relationship("Filial", foreign_keys="[CorrespondenciaInterna.cod_filial_destino]", back_populates="correspondencia_interna_cod_filial_destino", uselist=False)
     
     tipo_status = relationship("Status", back_populates="correspondencia_interna", uselist=False)

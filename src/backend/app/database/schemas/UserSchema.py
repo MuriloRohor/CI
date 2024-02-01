@@ -19,13 +19,13 @@ class UserSchemaRegister(BaseModel):
     email: str
     senha: str
     image_url: str
-    filial_id: int
+    cod_filial: int
     
     class Config:
         from_attributes = True
         
 class UserLoginSchema(BaseModel):
-    email: int
+    email: str
     senha: str
     
     class Config:

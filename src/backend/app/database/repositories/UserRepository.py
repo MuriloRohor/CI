@@ -19,7 +19,7 @@ class UserRepository():
             senha=user.senha,
             token="",
             image_url=user.image_url,
-            filial_id=user.filial_id
+            cod_filial=user.cod_filial
         )
         
         self.session.add(db_user)
@@ -31,21 +31,25 @@ class UserRepository():
         db_user = self.session.query(User)\
                             .filter(User.id == user.id)\
                             .first()
+                      
         return db_user
     
-    def ObterPorToken(self, token):
+    def ObterPorToken(self, token: str):
         db_user = self.session.query(User)\
                               .where(User.token == token)
                               
         return db_user
     
-    def ObterHashPorEmail(self, email):
+    def ObterHashPorEmail(self, email: str):
         db_user = self.session.query(User.senha)\
                               .filter(User.email == email)\
                               .first()
-        return db_user
+        if db_user:
+            return db_user[0]
+        
+        return None
     
-    def AlterarTokenPorEmail(self, email, new_token):
+    def AlterarTokenPorEmail(self, email: str, new_token: str):
         db_user = update(User)\
                   .where(User.email == email)\
                   .values(token = new_token)

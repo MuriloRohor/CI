@@ -18,5 +18,5 @@ class Filial(Base):
     
     user = relationship("User", back_populates="filial")
     
-    correspondencia_interna_cod_filail_origem = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.user_id_remetente]", back_populates="cod_filial_origem")
-    correspondencia_interna_cod_filail_destino = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.user_id_destinatario]", back_populates="cod_filial_destino")
+    correspondencia_interna_cod_filial_origem = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.cod_filial_origem]", back_populates="filial_origem")
+    correspondencia_interna_cod_filial_destino = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.cod_filial_destino]", back_populates="filial_destino")

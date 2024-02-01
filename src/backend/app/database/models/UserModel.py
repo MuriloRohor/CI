@@ -18,5 +18,6 @@ class User(Base):
     cod_filial: Mapped[int] = mapped_column(ForeignKey("filial.cod_filial"))
     
     filial = relationship("Filial", back_populates="user")
-    correspondencia_interna_remetente = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.cod_filial_origem]", back_populates="user_remetente")
-    correspondencia_interna_destinatario = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.cod_filial_destino]", back_populates="user_destinatario")
+    
+    correspondencia_interna_remetente = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.user_id_remetente]", back_populates="user_remetente")
+    correspondencia_interna_destinatario = relationship("CorrespondenciaInterna", foreign_keys="[CorrespondenciaInterna.user_id_destinatario]", back_populates="user_destinatario")

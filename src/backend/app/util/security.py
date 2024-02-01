@@ -36,7 +36,7 @@ def gerar_token(length: int = 32) -> str:
         return ""
     
 def criar_cookie_autenticacao(response, token):
-    response.set_cookies(
+    response.set_cookie(
         key="auth_token",
         value=token,
         max_age=1800,

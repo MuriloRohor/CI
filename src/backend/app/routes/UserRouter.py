@@ -8,7 +8,6 @@ from database.repositories.UserRepository import UserRepository
 
 from database.schemas.UserSchema import UserSchema, UserLoginSchema, UserPorIdSchema, UserSchemaRegister
 
-
 router = APIRouter()
 
 @router.post("/user/inserir", response_model=UserSchemaRegister)
