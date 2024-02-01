@@ -1,7 +1,7 @@
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from app.app.database.config.Base import Base
+from ci_app.app.database.config.Base import Base
 
 @pytest.fixture
 def session():

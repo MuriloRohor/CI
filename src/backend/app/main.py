@@ -2,8 +2,8 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 
-from app.routes.FilialRouter import router as router_filial
-from app.routes.UserRouter import router as router_user
+from routes.FilialRouter import router as router_filial
+from routes.UserRouter import router as router_user
 
 app = FastAPI()
 

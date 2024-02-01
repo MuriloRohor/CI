@@ -1,9 +1,9 @@
 from sqlalchemy import delete, update
 from sqlalchemy.orm import Session
 
-from app.database.models.moldes import Filial
-from app.database.schemas.FilialSchema import FilialPorIdSchema, FilialSchema
-from app.database.schemas.FiltroPageSchema import FiltroSchema
+from database.models.moldes import Filial
+from database.schemas.FilialSchema import FilialPorIdSchema, FilialSchema
+from database.schemas.FiltroPageSchema import FiltroSchema
 class FilialRepository():
     
     def __init__(self, session: Session) -> None:

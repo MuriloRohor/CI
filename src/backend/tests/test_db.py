@@ -1,9 +1,9 @@
 from sqlalchemy import select
 
-from app.database.models.FilialModel import Filial
-from app.database.models.StatusModel import Status
-from app.database.models.UserModel import User
-from app.database.models.CiModel import CorrespondenciaInterna
+from ci_app.database.models.FilialModel import Filial
+from ci_app.database.models.StatusModel import Status
+from ci_app.database.models.UserModel import User
+from ci_app.database.models.CiModel import CorrespondenciaInterna
 
 def test_create(session):
     new_filial = Filial(

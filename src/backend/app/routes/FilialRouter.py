@@ -2,12 +2,12 @@ from typing import List
 from fastapi import APIRouter, Request, Depends
 from sqlalchemy.orm import Session
 
-from app.database.config.db import get_session
+from database.config.db import get_session
 
-from app.database.repositories.FilialRepository import FilialRepository
+from database.repositories.FilialRepository import FilialRepository
 
-from app.database.schemas.FilialSchema import FilialSchema, FilialPorIdSchema
-from app.database.schemas.FiltroPageSchema import FiltroSchema
+from database.schemas.FilialSchema import FilialSchema, FilialPorIdSchema
+from database.schemas.FiltroPageSchema import FiltroSchema
 
 router = APIRouter()
 
