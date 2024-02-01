@@ -1,17 +1,19 @@
 import secrets
 import bcrypt
 from typing import Optional
-from fastapi import Request
+from fastapi import Depends, Request
+from sqlalchemy.orm import Session
+from database.config.db import get_session
 
 from database.repositories.UserRepository import UserRepository
 from database.models.UserModel import User
 
-async def obter_usuario_logado(request: Request) -> Optional[User]:
+async def obter_usuario_logado(request: Request, session: Session = Depends(get_session)) -> Optional[User]:
     try:
         token = request.cookies["auth_token"]
         if token.strip() == "":
             return None
-        usuario = UserRepository.ObterPorToken(token)
+        usuario = UserRepository(session).ObterPorToken(token)
         return usuario
     except KeyError:
         return None
@@ -43,4 +45,8 @@ def criar_cookie_autenticacao(response, token):
         httponly=True,
         samesite="lax",
     )
+    return response
+
+def excluir_cookie_autenticacao(response):
+    response.delete_cookie(key="auth_token")
     return response

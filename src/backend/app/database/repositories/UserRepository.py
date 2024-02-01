@@ -36,7 +36,8 @@ class UserRepository():
     
     def ObterPorToken(self, token: str):
         db_user = self.session.query(User)\
-                              .where(User.token == token)
+                              .filter(User.token == token)\
+                              .first()
                               
         return db_user
     

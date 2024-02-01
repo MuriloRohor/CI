@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from database.config.db import get_session
 
 from util.message import adicionar_cookie_mensagem, redirecionar_com_mensagem
-from util.security import conferir_senha, criar_cookie_autenticacao, gerar_token
+from util.security import conferir_senha, criar_cookie_autenticacao, excluir_cookie_autenticacao, gerar_token, obter_usuario_logado
 
 from database.repositories.UserRepository import UserRepository
 from database.schemas.UserSchema import UserSchema, UserLoginSchema, UserPorIdSchema, UserSchemaRegister
@@ -31,6 +31,16 @@ async def login_user(
             "Credenciais inválidas!"
         )
         
+    return response
+
+
+@router.get("/logout")
+async def get_logout(usuario: UserSchema = Depends(obter_usuario_logado), session = Depends(get_session)):
+    if usuario:
+        UserRepository(session).AlterarTokenPorEmail(usuario.email, "")
+    response = RedirectResponse("/", status.HTTP_302_FOUND)
+    excluir_cookie_autenticacao(response)
+    adicionar_cookie_mensagem(response, "Saída realizada com sucesso.")
     return response
         
     
