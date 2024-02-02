@@ -1,5 +1,7 @@
-from database.config.Base import Base
+from datetime import datetime
 
+from database.config.Base import Base
+from sqlalchemy import func
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
@@ -14,6 +16,8 @@ class CorrespondenciaInterna(Base):
     user_id_destinatario: Mapped[int] = mapped_column(ForeignKey("user.id"))
     cod_filial_origem: Mapped[int] = mapped_column(ForeignKey("filial.cod_filial"))
     cod_filial_destino: Mapped[int] = mapped_column(ForeignKey("filial.cod_filial"))
+    data_criacao: Mapped[datetime] = mapped_column(insert_default=func.now())
+    data_entrega: Mapped[datetime]
     descricao: Mapped[str]
     status: Mapped[int] = mapped_column(ForeignKey("tipo_status.cod_status"))
     

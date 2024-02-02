@@ -10,7 +10,9 @@ from util.security import conferir_senha, criar_cookie_autenticacao, excluir_coo
 from database.repositories.UserRepository import UserRepository
 from database.schemas.UserSchema import UserSchema, UserLoginSchema, UserPorIdSchema, UserSchemaRegister
 
+
 router = APIRouter()
+
 
 @router.post("/login")
 async def login_user(

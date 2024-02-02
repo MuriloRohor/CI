@@ -13,9 +13,7 @@ router = APIRouter()
 
 @router.get("/filial/listar", response_model=List[FilialSchema])
 def get_filiais_page(filtro: FiltroSchema, session: Session = Depends(get_session)):
-    print("1")
     filial = FilialRepository(session).ListarFiliaisPorPag(filtro)
-    print("2")
     return filial
 
 @router.post("/filial/inserir", response_model=FilialSchema)
