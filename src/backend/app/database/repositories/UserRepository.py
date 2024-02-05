@@ -27,6 +27,20 @@ class UserRepository():
         
         return db_user
     
+    def AlterarPorID(self, user: UserSchema):
+        db_user = update(User)\
+                  .where(User.id == user.id)\
+                  .values(
+                        cod_matricula=user.cod_matricula,
+                        nome=user.nome,
+                        email=user.email,
+                        cod_filial=user.cod_filial
+                  )
+        self.session.execute(db_user)
+        self.session.commit()
+        
+        return "Usuário Alterado!"
+    
     def ObterUserPorID(self, user: UserPorIdSchema):
         db_user = self.session.query(User)\
                             .filter(User.id == user.id)\
@@ -59,8 +73,7 @@ class UserRepository():
         self.session.commit()
         
         return True
-                              
-        
+    
     
     def VerificarEmailExiste(self, email):
         db_user = self.session.query(User)\

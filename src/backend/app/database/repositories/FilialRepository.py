@@ -45,7 +45,7 @@ class FilialRepository():
         return db_filial
         
         
-    def AlterarFilialPorID(self, filial: FilialSchema):
+    def AlterarPorID(self, filial: FilialSchema):
         db_filial = update(Filial)\
                     .where(Filial.id == filial.id)\
                     .values(

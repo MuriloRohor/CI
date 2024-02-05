@@ -1,9 +1,11 @@
 from datetime import datetime
 
 from database.config.Base import Base
-from sqlalchemy import func
+from sqlalchemy import Integer, Sequence, func
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+cod_ci_seq = Sequence('cod_ci_seq', start=1, increment=1)
 
 
 class CorrespondenciaInterna(Base):
@@ -11,7 +13,7 @@ class CorrespondenciaInterna(Base):
     __tablename__ = "correspondencia_interna"
     
     id: Mapped[int] = mapped_column(primary_key=True)
-    cod_ci: Mapped[int] = mapped_column(unique=True)
+    cod_ci: Mapped[int] = mapped_column(Integer, cod_ci_seq, server_default=cod_ci_seq.next_value(), unique=True)
     user_id_remetente: Mapped[int] = mapped_column(ForeignKey("user.id"))
     user_id_destinatario: Mapped[int] = mapped_column(ForeignKey("user.id"))
     cod_filial_origem: Mapped[int] = mapped_column(ForeignKey("filial.cod_filial"))
