@@ -8,7 +8,7 @@ from routes.RootRouter import router as router_root
 
 app = FastAPI()
 
-app.mount(path="/static", app=StaticFiles(directory="app/static"), name="static")
+app.mount(path="/static", app=StaticFiles(directory="static"), name="static")
 
 app.include_router(router_filial)
 app.include_router(router_user)

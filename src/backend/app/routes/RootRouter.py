@@ -1,6 +1,7 @@
 from typing import List
 from fastapi import APIRouter, Query, Request, Depends, status
-from fastapi.responses import RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from database.config.db import get_session
 
@@ -13,6 +14,14 @@ from database.schemas.UserSchema import UserSchema, UserLoginSchema, UserPorIdSc
 
 router = APIRouter()
 
+templates = Jinja2Templates(directory="templates")
+
+@router.get("/login", response_class=HTMLResponse)
+def get_login(request: Request):
+    return templates.TemplateResponse(
+        "login.html",
+        {"request": request}
+    )
 
 @router.post("/login")
 async def login_user(

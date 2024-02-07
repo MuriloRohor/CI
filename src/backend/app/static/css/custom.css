@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.input-field input {
+    border-bottom: 1px solid rgb(2, 2, 2) !important;
+}
+
+.input-field input::placeholder {
+    color: black;
+    opacity: 0.2;
+    /* Opcional: Firefox reduz a opacidade do placeholder por padrão, então você pode querer definir isso para 1 */
+}
+
+.container-login {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.card-login {
+    padding: 4rem;
+
+
+}
+.card-right{
+    padding: 20px !important;  
+}
+
+.card-right{
+    padding: 20px !important; 
+    
+}
+
+
+@media screen and (max-width: 600px) {
+    .card-login {
+        flex-direction: column;
+        
+    }
+}
