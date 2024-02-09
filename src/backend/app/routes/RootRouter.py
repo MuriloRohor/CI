@@ -47,6 +47,12 @@ async def login_user(
         
     return response
 
+@router.get("/", response_class=HTMLResponse)
+def get_root(request: Request):
+    return templates.TemplateResponse(
+        "index.html",
+        {"request": request}
+    )
 
 @router.get("/logout")
 async def get_logout(usuario: UserSchema = Depends(obter_usuario_logado), session = Depends(get_session)):
