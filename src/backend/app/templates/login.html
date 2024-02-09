@@ -1,24 +1,24 @@
 {% extends "base.html" %}
 {% block titulo %}Login{% endblock %}
 {% block principal %}
-<div class="grey darken-1 container-login">
+<div class="#e0f7fa cyan lighten-5 container-login">
     <div class="row card-login z-depth-5 valign-wrapper ">
         <div class="card-left col s12 l6">
             <img class="responsive-img" src="static/img/logo_cap.png" alt="">
         </div>
         <div class="card-right col s12 l5">
             
-            <form class="">
+            <form method="post" class="">
 
 
                 <div class="input-field">
-                    <input id="email" type="email" class="input-black validate" autocomplete="off">
-                    <label class="black-text" for="email">Email</label>
+                    <input id="email" name="email" type="email" class="input-black validate" autocomplete="off">
+                    <label class="black-text" for="email">Email </label>
                 </div>
 
 
                 <div class="input-field">
-                    <input id="senha" type="password" class="validate" autocomplete="off">
+                    <input id="senha" name="senha" type="password" class="validate" autocomplete="off">
                     <label class="black-text" for="senha">Senha</label>
                 </div>
 

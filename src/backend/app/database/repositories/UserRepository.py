@@ -61,7 +61,6 @@ class UserRepository():
                               .first()
         if db_user:
             return db_user[0]
-        
         return None
     
     def AlterarTokenPorEmail(self, email: str, new_token: str):

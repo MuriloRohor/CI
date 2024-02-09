@@ -21,7 +21,7 @@ async def obter_usuario_logado(request: Request, session: Session = Depends(get_
 def conferir_senha(senha: str, hash_senha: str) -> bool:
     try:
         return bcrypt.checkpw(senha.encode(), hash_senha.encode())
-    except ValueError:
+    except (ValueError, AttributeError):
         return False
     
 def obter_hash_senha(senha: str) -> str:

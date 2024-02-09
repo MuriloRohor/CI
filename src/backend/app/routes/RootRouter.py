@@ -1,5 +1,5 @@
 from typing import List
-from fastapi import APIRouter, Query, Request, Depends, status
+from fastapi import APIRouter, Form, Query, Request, Depends, status
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
@@ -25,10 +25,13 @@ def get_login(request: Request):
 
 @router.post("/login")
 async def login_user(
-    user: UserLoginSchema,
+    email: str = Form(...),
+    senha: str = Form(...),
     return_url = Query("/"),
     session: Session = Depends(get_session)
 ):
+    user = UserLoginSchema(email=email, senha=senha)
+    
     senha_hash_db = UserRepository(session).ObterHashPorEmail(user.email)
     if conferir_senha(user.senha, senha_hash_db):
         token = gerar_token()
