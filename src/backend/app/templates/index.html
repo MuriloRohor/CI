@@ -41,7 +41,8 @@
             <td>07/02/2024</td>
             <td>João</td>
             <td>Enviado</td>
-            <td><button class="btn black waves-effect waves-light"><i class="material-icons">open_in_new</i></button>
+            <td><button data-target="modal_ci" class="btn modal-trigger black waves-effect waves-light"><i
+                        class="material-icons">open_in_new</i></button>
             </td>
         </tr>
         <tr>
@@ -106,9 +107,25 @@
     <li class="waves-effect"><a href="#!">6</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
 </ul>
+<div class="modal modal-fixed-footer" id="modal_ci">
+    <div class="modal-content">
+        <h4>Teste</h4>
+        
+
+    </div>
+    <div class="modal-footer">
+        <a class="btn modal-close modal-action">Sair</a>
+    </div>
+</div>
 <script>
     $(document).ready(function () {
         $('.sidenav').sidenav();
     });
+
+
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+
 </script>
 {% endblock %}

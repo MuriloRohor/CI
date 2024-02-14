@@ -5,9 +5,8 @@ def adicionar_cookie_mensagem(response, mensagem):
     response.set_cookie(
         key="mensagem",
         value=mensagem,
-        max_age=1,
-        httponly=True,
-        samesite="lax",
+        max_age=20,
+        samesite="Lax",
     )
     
 def redirecionar_com_mensagem(url_destino: str, mensagem: str):
