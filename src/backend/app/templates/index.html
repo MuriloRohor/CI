@@ -1,22 +1,26 @@
 {% extends "base.html" %}
 {% block titulo %}Principal{% endblock %}
 {% block principal %}
-
-<nav class="black lighten-5">
+<nav class="black lighten-5 col s12">
     <div class="nav-wrapper container">
-        <a href="#" class="brand-logo"><img class="responsive-img" width="68px" src="static/img/logo_cap.png"
-                alt=""></a>
+        <a href="#" class="brand-logo"><img class="responsive-img" width="65px" src="static/img/logo_cap.png"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Ci</a></li>
-            <li><a href="badges.html">Ajuda</a></li>
-            <li><a href="collapsible.html">Perfil</a></li>
+            <li><a href="/ci">Ci</a></li>
+            <li><a href="/ajuda">Ajuda</a></li>
+            <li><a href="/perfil">Perfil</a></li>
         </ul>
     </div>
 </nav>
+<ul class="sidenav indigo lighten-5" id="mobile-demo">
+    <li><a href="/ci">Ci</a></li>
+    <li><a href="/ajuda">Ajuda</a></li>
+    <li><a href="/perfil">Perfil</a></li>
+</ul>
 <div>
     <br><br><br><br>
 </div>
-<table class="container centered striped" style="">
+<table class="container centered striped">
     <thead>
         <tr>
             <th>Codigo</th>
@@ -92,7 +96,6 @@
         </tr>
     </tbody>
 </table>
-<br><br>
 <ul class="pagination center-align">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     <li class="active black"><a href="#!">1</a></li>
@@ -103,10 +106,9 @@
     <li class="waves-effect"><a href="#!">6</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
 </ul>
-
-
-
-
-
-
+<script>
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+</script>
 {% endblock %}
