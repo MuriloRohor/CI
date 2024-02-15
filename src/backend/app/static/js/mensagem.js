@@ -18,8 +18,8 @@ function lerCookie(nome) {
         var c = ca[i];
         while (c.charAt(0) == ' ') c = c.substring(1, c.length);
         if (c.indexOf(nameEQ) == 0) {
-            // Use replace para remover as aspas do valor do cookie
-            return c.substring(nameEQ.length, c.length).replace(/\"/g, '');
+            // Decodifica o valor do cookie, que pode incluir caracteres codificados em percentual
+            return decodeURIComponent(c.substring(nameEQ.length, c.length).replace(/\"/g, ''));
         }
     }
     return null;

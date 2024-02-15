@@ -1,5 +1,5 @@
 from typing import List
-from fastapi import APIRouter, Form, Query, Request, Depends, status
+from fastapi import APIRouter, Form, HTTPException, Query, Request, Depends, status
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
@@ -42,16 +42,27 @@ async def login_user(
     else:
         response = redirecionar_com_mensagem(
             "/login",
-            "Credenciais inválidas!"
+            "Credenciais inválidas!",
         )
         
     return response
 
 @router.get("/", response_class=HTMLResponse)
-def get_root(request: Request):
+def get_root(
+            request: Request,
+            usuario: UserSchema = Depends(obter_usuario_logado)
+            ):
+    
+    if not usuario:
+        response = redirecionar_com_mensagem(
+            "/login",
+            "Faça login para se conectar!",         
+        )
+        return response
+    
     return templates.TemplateResponse(
         "index.html",
-        {"request": request}
+        {"request": request, "usuario": usuario}
     )
 
 @router.get("/logout")
