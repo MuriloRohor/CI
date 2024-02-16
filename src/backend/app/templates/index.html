@@ -1,25 +1,44 @@
 {% extends "base.html" %}
 {% block titulo %}Principal{% endblock %}
 {% block principal %}
-<nav class="black lighten-5 col s12">
-    <div class="nav-wrapper container">
-        <a href="#" class="brand-logo"><img class="responsive-img" width="65px" src="static/img/logo_cap.png"></a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="/ci">Ci</a></li>
-            <li><a href="/ajuda">Ajuda</a></li>
-            <li><a href="/perfil">Perfil</a></li>
-        </ul>
-    </div>
-</nav>
-<ul class="sidenav indigo lighten-5" id="mobile-demo">
-    <li><a href="/ci">Ci</a></li>
-    <li><a href="/ajuda">Ajuda</a></li>
-    <li><a href="/perfil">Perfil</a></li>
-</ul>
-<div>
-    <br><br><br><br>
+
 </div>
+<div class="row container">
+    <form method="post" class="col s12">
+        <div class="row">
+            <div class="input-field col s2">
+                <input id="codigo-filter" name="codigo-filter" type="number" class="input-black validate"
+                    autocomplete="off">
+                <label class="black-text" for="codigo-filter">Codigo</label>
+            </div>
+            <div class="input-field col s2"><input id="origem-filter" name="origem-filter" type="text"
+                    class="input-black validate" autocomplete="off">
+                <label class="black-text" for="origem-filter">Origem</label>
+            </div>
+            <div class="input-field col s2"><input id="destino-filter" name="destino-filter" type="text"
+                    class="input-black validate" autocomplete="off">
+                <label class="black-text" for="destino-filter">Destino</label>
+            </div>
+            <div class="input-field col s2"><input id="data_filter" name="data_filter" type="date"
+                    class="input-black validate" autocomplete="off">
+                <label class="black-text" for="data_filter"></label>
+            </div>
+            <div class="input-field col s2"><input id="destinatario-filter" name="destinatario-filter" type="text"
+                    class="input-black validate" autocomplete="off">
+                <label class="black-text" for="destinatario-filter">Destinatario</label>
+            </div>
+            <div class="input-field col s2"><input id="status-filter" name="status-filter" type="text"
+                    class="input-black validate" autocomplete="off">
+                <label class="black-text" for="status-filter">Status</label>
+            </div>
+
+        </div>
+        <button class="col s12 btn" type="submit"><i class="material-icons">filter_alt</i></button>
+
+    </form>
+
+</div>
+
 <table class="container centered striped">
     <thead>
         <tr>
@@ -32,7 +51,6 @@
             <th>Ações</th>
         </tr>
     </thead>
-
     <tbody>
         <tr>
             <td>13572</td>
@@ -43,6 +61,46 @@
             <td>Enviado</td>
             <td><button data-target="modal_ci" class="btn modal-trigger black waves-effect waves-light"><i
                         class="material-icons">open_in_new</i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>13572</td>
+            <td>Iconha</td>
+            <td>Cariacica</td>
+            <td>07/02/2024</td>
+            <td>João</td>
+            <td>Enviado</td>
+            <td><button class="btn black waves-effect waves-light"><i class="material-icons">open_in_new</i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>13572</td>
+            <td>Iconha</td>
+            <td>Cariacica</td>
+            <td>07/02/2024</td>
+            <td>João</td>
+            <td>Enviado</td>
+            <td><button class="btn black waves-effect waves-light"><i class="material-icons">open_in_new</i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>13572</td>
+            <td>Iconha</td>
+            <td>Cariacica</td>
+            <td>07/02/2024</td>
+            <td>João</td>
+            <td>Enviado</td>
+            <td><button class="btn black waves-effect waves-light"><i class="material-icons">open_in_new</i></button>
+            </td>
+        </tr>
+        <tr>
+            <td>13572</td>
+            <td>Iconha</td>
+            <td>Cariacica</td>
+            <td>07/02/2024</td>
+            <td>João</td>
+            <td>Enviado</td>
+            <td><button class="btn black waves-effect waves-light"><i class="material-icons">open_in_new</i></button>
             </td>
         </tr>
         <tr>
@@ -110,22 +168,10 @@
 <div class="modal modal-fixed-footer" id="modal_ci">
     <div class="modal-content">
         <h4>Teste</h4>
-        
-
     </div>
     <div class="modal-footer">
         <a class="btn modal-close modal-action">Sair</a>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $('.sidenav').sidenav();
-    });
 
-
-    $(document).ready(function () {
-        $('.modal').modal();
-    });
-
-</script>
 {% endblock %}
