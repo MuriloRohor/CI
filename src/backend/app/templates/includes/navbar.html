@@ -1,0 +1,46 @@
+<ul id="dropdown_ci1" class="dropdown-content black ">
+    <li><a class="white-text" href="ci/criar-ci">Criar CI <i class="tiny material-icons">edit
+            </i></a></li>
+    <li class="divider"></li>
+    <li><a class="white-text" href="/ci/enviados">Meus envios<i class="tiny material-icons">outgoing_mail
+            </i></a></li>
+    <li class="divider"></li>
+    <li><a class="white-text" href="ci/recebidos">Recebidos<i class="tiny material-icons">markunread_mailbox
+            </i></a></li>
+</ul>
+
+<nav class="black lighten-5 col s12">
+    <div class="nav-wrapper container">
+        <a href="#" class="brand-logo"><img class="responsive-img" width="65px" src="{{ url_for('static', path='img/logo_cap.png') }}"></a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown_ci1">Correspôndencias
+                    <i class="material-icons right">arrow_drop_down
+                    </i>
+                </a>
+            </li>
+            <li><a href="/ajuda">Ajuda</a></li>
+            <li><a href="/perfil">Perfil</a></li>
+        </ul>
+    </div>
+</nav>
+
+<ul id="dropdown_ci2" class="dropdown-content black">
+    <li><a class="white-text" href="ci/criar-ci">Criar CI <i class="white-text material-icons">edit
+            </i></a></li>
+    <li class="divider"></li>
+    <li><a class="white-text" href="ci/enviados">Meus envios<i class="white-text material-icons">outgoing_mail
+            </i></a></li>
+    <li class="divider"></li>
+    <li><a class="white-text" href="ci/recebidos">Recebidos<i
+                class="white-text tiny material-icons">markunread_mailbox
+            </i></a></li>
+</ul>
+<ul class="sidenav black" id="mobile-demo">
+    <li><a class="dropdown-trigger white-text" href="#!" data-target="dropdown_ci2">Correspôndencias<i
+                class="white-text material-icons right">arrow_drop_down</i></a></li>
+    </li>
+    <li><a class="white-text" href="/ajuda">Ajuda</a></li>
+    <li><a class="white-text" href="/perfil">Perfil</a></li>
+</ul>

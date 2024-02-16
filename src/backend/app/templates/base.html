@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="static/libs/materialize/css/materialize.min.css">
-    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='/libs/materialize/css/materialize.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/custom.css') }}">
 
     <title>
         Ci ::
@@ -16,66 +16,28 @@
 
 <body class="indigo lighten-5">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <ul id="dropdown_ci1" class="dropdown-content black ">
-        <li><a class="white-text" href="ci/envios">Criar CI <i class="tiny material-icons">edit
-                </i></a></li>
-        <li class="divider"></li>
-        <li><a class="white-text" href="ci/envios">Meus envios<i class="tiny material-icons">outgoing_mail
-                </i></a></li>
-        <li class="divider"></li>
-        <li><a class="white-text" href="ci/recebidos">Recebidos<i class="tiny material-icons">markunread_mailbox
-                </i></a></li>
-    </ul>
 
-    <nav class="black lighten-5 col s12">
-        <div class="nav-wrapper container">
-            <a href="#" class="brand-logo"><img class="responsive-img" width="65px" src="static/img/logo_cap.png"></a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown_ci1">Correspôndencias
-                        <i class="material-icons right">arrow_drop_down
-                        </i>
-                    </a>
-                </li>
-                <li><a href="/ajuda">Ajuda</a></li>
-                <li><a href="/perfil">Perfil</a></li>
-            </ul>
-        </div>
-    </nav>
+    {% if request.url.path != '/login' %}
+    {% include 'includes/navbar.html' %}
+    {% endif %}
 
-    <ul id="dropdown_ci2" class="dropdown-content black">
-        <li><a class="white-text" href="ci/envios">Criar CI <i class="white-text material-icons">edit
-                </i></a></li>
-        <li class="divider"></li>
-        <li><a class="white-text" href="ci/envios">Meus envios<i class="white-text material-icons">outgoing_mail
-                </i></a></li>
-        <li class="divider"></li>
-        <li><a class="white-text" href="ci/recebidos">Recebidos<i
-                    class="white-text tiny material-icons">markunread_mailbox
-                </i></a></li>
-    </ul>
-    <ul class="sidenav black" id="mobile-demo">
-        <li><a class="dropdown-trigger white-text" href="#!" data-target="dropdown_ci2">Correspôndencias<i
-                    class="white-text material-icons right">arrow_drop_down</i></a></li>
-        </li>
-        <li><a class="white-text" href="/ajuda">Ajuda</a></li>
-        <li><a class="white-text" href="/perfil">Perfil</a></li>
-    </ul>
-    <div>
+    {% block principal %}
+    {% endblock %}
 
-        {% block principal %}
-        {% endblock %}
-
-
-        <script>  $(document).ready(function () {
-                $('.sidenav').sidenav();
-                $(".dropdown-trigger").dropdown();
-                $(".dropdown-trigger2").dropdown();
-                $('.modal').modal();
-            });</script>
-        <script src="static/libs/materialize/js/materialize.min.js"></script>
-        <script src="static/js/mensagem.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $(".dropdown-trigger").dropdown();
+            $('.modal').modal();
+        });
+    </script>
+    
+    
+    
+    
+    <script src="{{ url_for('static', path='libs/materialize/js/materialize.min.js') }}"> </script>
+    <script src="{{ url_for('static', path='js/mensagem.js') }}"> </script>
+    
 
 </body>
 
