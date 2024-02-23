@@ -1,10 +1,10 @@
-from sqlalchemy import delete, update
+from sqlalchemy import delete, func, update
 from sqlalchemy.orm import Session
 
 from database.models.moldes import User
 
 from database.schemas.UserSchema import UserPorIdSchema, UserSchema, UserLoginSchema
-from database.schemas.FiltroPageSchema import FiltroSchema
+from database.schemas.FiltroSchema import FiltroPorFilialSchema, FiltroSchema
 
 class UserRepository():
     
@@ -84,6 +84,16 @@ class UserRepository():
         
         return False
     
+    def ListarUsuariosPorFilialeNome(self, filtro: FiltroPorFilialSchema):
+        offset = (filtro.page - 1) * filtro.itens_page
+        
+        db_user = self.session.query(User)\
+                              .filter(func.lower(User.nome).contains(func.lower(filtro.nome_usuario)))\
+                              .filter(User.cod_filial == filtro.cod_filial)\
+                              .limit(filtro.itens_page)\
+                              .offset(offset)\
+                              .all()
+        return db_user
     
         
         

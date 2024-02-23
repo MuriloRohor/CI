@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 
 from app.database.models.StatusModel import Status
 from app.database.schemas.CorrespondenciaInternaSchema import CorrespondenciaInternaCodCiSchema, CorrespondenciaInternaSchema
-from app.database.schemas.FiltroPageSchema import FiltroSchema
+from app.database.schemas.FiltroSchema import FiltroSchema
 from app.database.schemas.UserSchema import UserPorIdSchema, UserSchema
 
 from database.models.CiModel import CorrespondenciaInterna

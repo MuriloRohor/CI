@@ -14,7 +14,7 @@ router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 @router.get("/ci/enviados", response_class=HTMLResponse)
-def get_ci_enviados(
+def get_enviados(
             request: Request,
             usuario: UserSchema = Depends(obter_usuario_logado)
             ):
@@ -27,6 +27,24 @@ def get_ci_enviados(
         return response
     
     return templates.TemplateResponse(
-        "enviados.html",
+        "ci/enviados.html",
+        {"request": request, "usuario": usuario}
+    )
+    
+@router.get("/ci/cadastrar", response_class=HTMLResponse)
+def get_criar_ci(
+    request: Request,
+    usuario: UserSchema = Depends(obter_usuario_logado)
+):
+    
+    if not usuario:
+        response = redirecionar_com_mensagem(
+            "/login",
+            "Faça login para se conectar!",         
+        )
+        return response
+    
+    return templates.TemplateResponse(
+        "ci/cadastrar.html",
         {"request": request, "usuario": usuario}
     )

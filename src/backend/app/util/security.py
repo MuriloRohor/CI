@@ -13,8 +13,6 @@ async def obter_usuario_logado(request: Request, session: Session = Depends(get_
         token = request.cookies["auth_token"]
         if token.strip() == "":
             return None
-
-        
         usuario = UserRepository(session).ObterPorToken(token)
         return usuario
     except KeyError:

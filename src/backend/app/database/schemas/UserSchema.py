@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from typing import Optional
 
+from database.schemas.FilialSchema import FilialSchema
+
 class UserSchema(BaseModel):
     id: Optional[int] = None
     cod_matricula: int
@@ -35,5 +37,14 @@ class UserLoginSchema(BaseModel):
 class UserPorIdSchema(BaseModel):
     id: int
       
+    class Config:
+        from_attributes = True
+        
+class ListagemUsuarioSchema(BaseModel):
+    cod_matricula: int
+    nome: str
+    image_url: str
+    filial: Optional[FilialSchema] = None
+    
     class Config:
         from_attributes = True

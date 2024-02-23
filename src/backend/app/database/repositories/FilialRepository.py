@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from database.models.moldes import Filial
 from database.schemas.FilialSchema import FilialPorIdSchema, FilialSchema
-from database.schemas.FiltroPageSchema import FiltroSchema
+from database.schemas.FiltroSchema import FiltroSchema
 class FilialRepository():
     
     def __init__(self, session: Session) -> None:

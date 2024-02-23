@@ -7,7 +7,7 @@ from database.config.db import get_session
 from database.repositories.FilialRepository import FilialRepository
 
 from database.schemas.FilialSchema import FilialSchema, FilialPorIdSchema
-from database.schemas.FiltroPageSchema import FiltroSchema
+from database.schemas.FiltroSchema import FiltroSchema
 
 router = APIRouter()
 
