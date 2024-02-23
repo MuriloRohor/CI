@@ -13,6 +13,13 @@
     /* Opcional: Firefox reduz a opacidade do placeholder por padrão, então você pode querer definir isso para 1 */
 }
 
+
+/* criar barra de rolagem no modal de procurar usuario */
+#lista_user_cadastrar {
+    max-height: 350px !important;
+    overflow-y: auto !important;
+}
+
 .container-login {
     display: flex;
     align-items: center;

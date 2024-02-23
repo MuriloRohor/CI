@@ -24,7 +24,7 @@ def inserir_usuario(user: UserSchemaRegister, session: Session = Depends(get_ses
         
     return new_user
 
-@router.get("/user/filtrar-por-filial", response_model=List[ListagemUsuarioSchema])
+@router.post("/user/filtrar-por-filial", response_model=List[ListagemUsuarioSchema])
 def filtrar_usuario_por_nome_e_filial(
     filtro: FiltroPorFilialSchema, 
     session: Session = Depends(get_session), 

@@ -46,37 +46,42 @@
         <form method="" id="form_search_usuarios" class="col s12">
             <div class="row ">
                 <div class="input-field col s4">
-                    <select id="filial_usuario_modal" name="filial">
+                    <select name="filial_usuario_modal">
                         <option value="" disabled selected>Selecione</option>
                         <option value="1">01 - Iconha</option>
-                        <option value="2">02 - Linhares</option>
+                        <option value="4">04 - Pedra Lisa Alta</option>
                     </select>
                     <label>Filial Destino</label>
                 </div>
                 <div class="input-field col s4">
-                    <input id="nome" name="nome" type="text" class="input-black validate" autocomplete="off">
+                    <input name="nome_usuario_modal" type="text" class="input-black validate" autocomplete="off">
                     <label class="black-text" for="nome">Nome Colaborador</label>
                 </div>
                 <div class="input-field col s4">
-                    <button type="button" class="btn black waves-effect waves-light">
+                    <button type="submit" class="btn black waves-effect waves-light">
                         <i class="material-icons">search</i>
                     </button>
                 </div>
             </div>
         </form>
-        <ul class="collection">
-            <li class="collection-item avatar">
-                <i class="material-icons circle red">person</i>
-                <span class="title">João do Teste</span>
-                <p>Matricula 8429 <br>
-                    Filial Iconha
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">arrow_forward</i></a>
-            </li>
+        <ul id="lista_user_cadastrar" class="collection">
+
         </ul>
+
     </div>
-    <div class="modal-footer">
-        <a class="btn modal-close modal-action">Sair</a>
+
+    <div class="modal-footer row">
+        <ul class="pagination center-align col s11">
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+            <li class="active black"><a href="#!">1</a></li>
+            <li class="waves-effect"><a href="#!">2</a></li>
+            <li class="waves-effect"><a href="#!">3</a></li>
+            <li class="waves-effect"><a href="#!">4</a></li>
+            <li class="waves-effect"><a href="#!">5</a></li>
+            <li class="waves-effect"><a href="#!">6</a></li>
+            <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        </ul>
+        <a class="btn modal-close modal-action col s1">Sair</a>
     </div>
 </div>
 
